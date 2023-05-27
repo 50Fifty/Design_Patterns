@@ -19,5 +19,3 @@ class Singleton(metaclass=SingletonMeta):
     Singleton class.
     """
     pass
-
-x

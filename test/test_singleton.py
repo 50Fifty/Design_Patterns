@@ -25,6 +25,9 @@ def test_Singleton():
     instance2 = ChildClass1("Instance 2")
     assert instance1 is instance2
 
+if __name__ == "__main__":
+    print("hello")
+
 # if __name__ == "__main__":
 #     # Creating instances of ChildClass1 and ChildClass2.
 #     instance1 = ChildClass1("Instance 1")
