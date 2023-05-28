@@ -17,30 +17,30 @@ class RoundPeg:
     def __init__(self, radius):
         self.__radius = radius
 
-    def getRadius(self):
+    def get_radius(self):
         return self.__radius
 
 class RoundHole: 
     def __init__(self, radius):
         self.__radius = radius
 
-    def getRadius(self):
+    def get_radius(self):
         return self.__radius
     
     def fits(self, peg: RoundPeg) -> bool:
         if not isinstance(peg, RoundPeg):
             raise TypeError('peg must be of type RoundPeg')
         
-        return True if peg.getRadius() <= self.getRadius() else False
+        return peg.get_radius() <= self.get_radius()
 
 class SquarePeg:
     def __init__(self, width):
         self.__width = width
 
-    def getWidth(self):
+    def get_width(self):
         return self.__width
     
 class SquarePegAdapter(RoundPeg):
     def __init__(self, peg:SquarePeg):
         from math import sqrt
-        super().__init__(peg.getWidth() * sqrt(2) / 2)
+        super().__init__(peg.get_width() * sqrt(2) / 2)

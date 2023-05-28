@@ -1,4 +1,4 @@
-from design_patterns.structural.adapter_object import RoundPeg, SquarePeg, SquarePegAdapter, RoundHole
+from design_patterns.structural.adapter_object import SquarePeg, SquarePegAdapter, RoundHole
 
 def test_1_square_peg_adapter_fits_into_round_hole_pass():
     round_hole = RoundHole(5)
