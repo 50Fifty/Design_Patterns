@@ -1,42 +1,24 @@
 from design_patterns.singleton import Singleton
 
-class ChildClass1(Singleton):
+def test_1_same_singleton_instance():
     """
-    ChildClass1 that inherits from Singleton.
-    It has the property that all instances of ChildClass are the same object.
+    Creating instances of Singleton should return the same object.
     """
-    def __init__(self, name):
-        self.name = name
+    instance1 = Singleton("Instance 1")
+    instance2 = Singleton("Instance 2")
+    instance3 = Singleton("Instance 3")
+    instance4 = Singleton("Instance 4")
+    instance5 = Singleton("Instance 5")
+    assert instance1 is instance2 is instance3 is instance4 is instance5
 
-class ChildClass2(Singleton):
+def test_2_same_singleton_name():
     """
-    ChildClass2 that inherits from Singleton.
-    It has the property that all instances of ChildClass are the same object.
+    Creating instances of Singleton should have the same name.
     """
-    def __init__(self, name):
-        self.name = name
+    instance1 = Singleton("Instance 1")
+    instance2 = Singleton("Instance 2")
+    instance3 = Singleton("Instance 3")
+    instance4 = Singleton("Instance 4")
+    instance5 = Singleton("Instance 5")
+    assert instance1.name == instance2.name == instance3.name == instance4.name == instance5.name == "Instance 1"
 
-def test_Singleton():
-    """
-    Function to test Singleton.
-        - Only one instance should be created when an object is instantiated twice.
-    """
-    instance1 = ChildClass1("Instance 1")
-    instance2 = ChildClass1("Instance 2")
-    assert instance1 is instance2
-
-if __name__ == "__main__":
-    print("hello")
-
-# if __name__ == "__main__":
-#     # Creating instances of ChildClass1 and ChildClass2.
-#     instance1 = ChildClass1("Instance 1")
-#     instance2 = ChildClass1("Instance 2")
-#     instance3 = ChildClass2("Instance 3")
-
-#     print(f"Are instance1 and instance2 the same object: {instance1 is instance2}") # Output: True
-#     print(f"Are instance1 and instance3 the same object: {instance1 is instance3}") # Output: False
-#     print(f"Are instance2 and instance3 the same object: {instance2 is instance3}") # Output: False
-#     print(f"instance1 name: {instance1.name}") # Output: Instance 1
-#     print(f"instance2 name: {instance2.name}") # Output: Instance 1
-#     print(f"instance3 name: {instance3.name}") # Output: Instance 3
