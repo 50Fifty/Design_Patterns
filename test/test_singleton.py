@@ -1,4 +1,4 @@
-from design_patterns.singleton import Singleton
+from design_patterns.creational.singleton import Singleton
 
 def test_1_same_singleton_instance():
     """

@@ -1,4 +1,4 @@
-from design_patterns.singleton_meta import Singleton
+from design_patterns.creational.singleton_meta import Singleton
 
 class MySingleton(Singleton):
     """
