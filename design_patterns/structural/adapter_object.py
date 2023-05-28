@@ -1,5 +1,5 @@
 """
-Adapter: Class version. (Programming language must support multiple inheritance)
+Adapter: Object version. (Applicable to most if not all programming languages)
 
 This is an example of the Adapter design pattern implemented in Python.
 The Adapter pattern is used to convert the interface of a class into another interface clients expect.
@@ -40,8 +40,7 @@ class SquarePeg:
     def getWidth(self):
         return self.__width
     
-class SquarePegAdapter(SquarePeg, RoundPeg):
-    def __init__(self, width):
+class SquarePegAdapter(RoundPeg):
+    def __init__(self, peg:SquarePeg):
         from math import sqrt
-        SquarePeg.__init__(self, width)
-        RoundPeg.__init__(self, self.getWidth() * sqrt(2) / 2)
+        super().__init__(peg.getWidth() * sqrt(2) / 2)

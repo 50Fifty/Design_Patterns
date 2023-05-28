@@ -1,3 +1,19 @@
+"""
+Singleton: Inheritable version.
+
+This is an example of the Singleton design pattern implemented in Python.
+The Singleton pattern is used to ensure that only one instance of a class is created.
+All further references to objects of the singleton class refer to the same underlying instance.
+The Singleton pattern is also referred to as the Singleton Object Creational Pattern.
+
+In this example, the Singleton class is meant to be inherited.
+Classes that inherit from the Singleton class will only be instantiated once.
+
+The instance of the child classes is stored in a dictionary in the metaclass.
+
+For the non-inheritable version, see design_patterns\singleton.py.
+"""
+
 class SingletonMeta(type):
     """
     Metaclass for Singleton class.

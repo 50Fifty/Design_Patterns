@@ -13,7 +13,7 @@ def test_1_same_singleton_instance():
 
 def test_2_same_singleton_name():
     """
-    Creating instances of Singleton should have the same name.
+    Creating instances of Singleton should not have any attribute changes.
     """
     instance1 = Singleton("Instance 1")
     instance2 = Singleton("Instance 2")
