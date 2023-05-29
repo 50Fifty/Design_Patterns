@@ -1,5 +1,5 @@
 """
-Adapter: Class version. (Programming language must support multiple inheritance)
+Adapter: Class version. (Only applicable to programming languages that support multiple inheritance)
 
 This is an example of the Adapter design pattern implemented in Python.
 The Adapter pattern is used to convert the interface of a class into another interface clients expect.
@@ -14,6 +14,10 @@ Idea from: https://refactoring.guru/design-patterns/adapter
 """
 
 class RoundPeg:
+    """
+    RoundPegs are compatible with RoundHoles.
+    """
+
     def __init__(self, radius):
         self.__radius = radius
 
@@ -21,6 +25,10 @@ class RoundPeg:
         return self.__radius
 
 class RoundHole: 
+    """
+    RoundHoles are compatible with RoundPegs.
+    """
+
     def __init__(self, radius):
         self.__radius = radius
 
@@ -34,6 +42,10 @@ class RoundHole:
         return peg.get_radius() <= self.get_radius()
 
 class SquarePeg:
+    """
+    SquarePegs are not compatible with RoundHoles (e.g. they are a new class/implementation).
+    """
+
     def __init__(self, width):
         self.__width = width
 
@@ -41,6 +53,12 @@ class SquarePeg:
         return self.__width
     
 class SquarePegAdapter(SquarePeg, RoundPeg):
+    """
+    SquarePegAdapter is a subclass of SquarePeg and RoundPeg.
+    SquarePegAdapter makes use of multiple inheritance to inherit from both SquarePeg and RoundPeg.
+        - This allows SquarePegAdapter to be used as a RoundPeg.
+    """
+
     def __init__(self, width):
         from math import sqrt
         SquarePeg.__init__(self, width)

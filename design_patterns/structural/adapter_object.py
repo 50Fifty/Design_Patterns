@@ -14,6 +14,10 @@ Idea from: https://refactoring.guru/design-patterns/adapter
 """
 
 class RoundPeg:
+    """
+    RoundPegs are compatible with RoundHoles.
+    """
+
     def __init__(self, radius):
         self.__radius = radius
 
@@ -21,6 +25,10 @@ class RoundPeg:
         return self.__radius
 
 class RoundHole: 
+    """
+    RoundHoles are compatible with RoundPegs.
+    """
+
     def __init__(self, radius):
         self.__radius = radius
 
@@ -34,6 +42,10 @@ class RoundHole:
         return peg.get_radius() <= self.get_radius()
 
 class SquarePeg:
+    """
+    SquarePegs are not compatible with RoundHoles (e.g. they are a new class/implementation).
+    """
+
     def __init__(self, width):
         self.__width = width
 
@@ -41,6 +53,15 @@ class SquarePeg:
         return self.__width
     
 class SquarePegAdapter(RoundPeg):
+    """
+    SquarePegAdapter is a subclass of RoundPeg.
+    SquarePegAdapter makes use of inheritance to inherit from RoundPeg.
+        - This allows SquarePegAdapter to be used as a RoundPeg.
+    SquarePegAdapter also makes use of composition to store a SquarePeg object.
+        - This allows SquarePegAdapter to be used as a SquarePeg.
+    """
+
     def __init__(self, peg:SquarePeg):
         from math import sqrt
-        super().__init__(peg.get_width() * sqrt(2) / 2)
+        self.__square_peg = peg
+        super().__init__(self.__square_peg.get_width() * sqrt(2) / 2)
