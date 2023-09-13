@@ -11,7 +11,7 @@ Classes that inherit from the Singleton class will only be instantiated once.
 
 The instance of the child classes is stored in a dictionary in the metaclass.
 
-For the non-inheritable version, see design_patterns\singleton.py.
+For the non-inheritable version, see design_patterns/singleton.py.
 """
 
 class SingletonMeta(type):

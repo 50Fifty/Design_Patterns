@@ -9,7 +9,7 @@ The Singleton pattern is also referred to as the Singleton Object Creational Pat
 In this example we have a Singleton class that can only be instantiated once.
 Subsequent instantiations will return the same instance.
 
-For the inheritable version, see design_patterns\singleton_meta.py.
+For the inheritable version, see design_patterns/singleton_meta.py.
 """
 
 class Singleton:
